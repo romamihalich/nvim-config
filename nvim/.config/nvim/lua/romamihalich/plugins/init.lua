@@ -5,6 +5,4 @@ return {
     'kyazdani42/nvim-web-devicons',
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
-
-    'vimwiki/vimwiki',
 }
