@@ -1,7 +1,14 @@
-require("mason").setup()
+require("mason").setup({
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+    },
+})
+
 require("mason-lspconfig").setup {
     ensure_installed = { },
 }
+
 require("mason-lspconfig").setup_handlers {
     function (server_name)
         local opts = {
@@ -23,12 +30,6 @@ require("mason-lspconfig").setup_handlers {
                     }
                 }
             }, opts)
-        end
-
-        if server_name == "omnisharp" then
-            opts.on_attach = function(client, bufnr)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', "<cmd>lua require('omnisharp_extended').telescope_lsp_definitions()<CR>", { noremap=true, silent=true })
-            end
         end
 
         require("lspconfig")[server_name].setup(opts)
