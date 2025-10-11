@@ -37,3 +37,7 @@ end
 vim.opt.iskeyword:append('-')
 vim.opt.diffopt:append('iwhite')
 vim.opt.fillchars:append('diff: ')
+
+if vim.loop.os_uname().sysname ~= "Linux" then
+    vim.cmd.language("en_GB")
+end
