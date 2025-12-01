@@ -53,7 +53,7 @@ editor_cmd = terminal .." -e ".. editor
 browser = os.getenv("BROWSER") or "qutebrowser"
 file_manager = "pcmanfm"
 
-modkey = "Mod1"
+modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
