@@ -2,6 +2,8 @@
 
 if ! [ -f /etc/NIXOS ]; then
     export PATH=$PATH:~/.local/bin
+    export PATH="$PATH:/home/romamihalich/.dotnet/tools"
+
     # export QT_QPA_PLATFORMTHEME="qt5ct"
     export EDITOR=/usr/bin/nvim
     # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -10,6 +12,7 @@ if ! [ -f /etc/NIXOS ]; then
     export TERMINAL=/usr/bin/alacritty
     export VISUAL=nvim
     export EDITOR="$VISUAL"
+
 fi
 
 # set typematic delay and rate
