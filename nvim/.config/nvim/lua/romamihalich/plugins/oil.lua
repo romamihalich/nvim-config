@@ -13,5 +13,7 @@ return {
                 show_hidden = true,
             },
         })
+
+        Keymap("n", "<leader>e", vim.cmd.Oil, "Oil")
     end
 }
