@@ -6,6 +6,16 @@ return {
     'folke/tokyonight.nvim',
     'shaunsingh/nord.nvim',
     {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                auto_integrations = true,
+            })
+        end
+    },
+    {
         'navarasu/onedark.nvim',
         config = function()
             local onedark = require "onedark"
