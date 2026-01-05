@@ -13,7 +13,8 @@ return {
                     click = true,
                 }
             end
-        }
+        },
+        "bwpge/lualine-pretty-path",
     },
     config = function()
         local lualine = require'lualine'
@@ -52,7 +53,7 @@ return {
                 lualine_a = {'mode'},
                 lualine_b = {'branch'},
                 lualine_c = {
-                    'filename',
+                    'pretty_path',
                     { "navic", color_correction = "static", }
                 },
                 lualine_x = {
