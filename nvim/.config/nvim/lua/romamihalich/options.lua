@@ -28,6 +28,7 @@ local options = {
     cursorline = true,
     grepprg = "rg --vimgrep --no-heading",
     grepformat = "%f:%l:%c:%m,%f:%l:%m,%f",
+    virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 }
 
 for k, v in pairs(options) do
