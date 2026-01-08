@@ -1,9 +1,11 @@
 return {
-    'https://github.com/nvim-treesitter/playground',
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
-        dependencies = { 'windwp/nvim-ts-autotag' },
+        dependencies = {
+            'windwp/nvim-ts-autotag',
+            opts = {}
+        },
         config = function()
             require'nvim-treesitter.configs'.setup {
                 -- ensure_installed = "all", -- one of "all"
@@ -30,9 +32,6 @@ return {
                 context_commentstring = {
                     enable = true,
                     enable_autocmd = false,
-                },
-                autotag = {
-                    enable = true,
                 },
             }
         end

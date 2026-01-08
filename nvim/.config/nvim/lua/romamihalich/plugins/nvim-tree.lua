@@ -58,4 +58,5 @@ return {
         }
 
         Keymap("n", "<leader>E", vim.cmd.NvimTreeToggle, "Explorer toggle")
-    end}
+    end
+}
