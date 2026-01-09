@@ -2,7 +2,7 @@ return {
     {
         'tpope/vim-fugitive',
         config = function()
-            Keymap("n", "<leader>gq", function() vim.cmd.G("difftool") end, "Set quickfix list with hunks")
+            vim.keymap.set("n", "<leader>gq", function() vim.cmd.G("difftool") end, { desc = "Set quickfix list with hunks" })
         end
     },
     {
@@ -16,8 +16,8 @@ return {
                     },
                 },
             })
-            Keymap("n", "<leader>gg", vim.cmd.DiffviewOpen, "Diffview")
-            Keymap("v", "<leader>gh", vim.cmd.DiffviewFileHistory, "File history")
+            vim.keymap.set("n", "<leader>gg", vim.cmd.DiffviewOpen, { desc = "Diffview" })
+            vim.keymap.set("v", "<leader>gh", vim.cmd.DiffviewFileHistory, { desc = "File history" })
         end
     },
     {
@@ -26,13 +26,13 @@ return {
             require('gitsigns').setup({
                 numhl = true,
             })
-            Keymap("n", "<leader>gs", function() vim.cmd.Gitsigns("stage_hunk") end, "Stage hunk")
-            Keymap("n", "<leader>gl", function() vim.cmd.Gitsigns("blame_line") end, "Blame line")
-            Keymap("n", "<leader>gp", function() vim.cmd.Gitsigns("preview_hunk") end, "Preview hunk")
-            Keymap("n", "<leader>gr", function() vim.cmd.Gitsigns("reset_hunk") end, "Reset hunk")
+            vim.keymap.set("n", "<leader>gs", function() vim.cmd.Gitsigns("stage_hunk") end, { desc = "Stage hunk" })
+            vim.keymap.set("n", "<leader>gl", function() vim.cmd.Gitsigns("blame_line") end, { desc = "Blame line" })
+            vim.keymap.set("n", "<leader>gp", function() vim.cmd.Gitsigns("preview_hunk") end, { desc = "Preview hunk" })
+            vim.keymap.set("n", "<leader>gr", function() vim.cmd.Gitsigns("reset_hunk") end, { desc = "Reset hunk" })
 
-            Keymap("n", "]h", function() vim.cmd.Gitsigns("next_hunk") end, "Next hunk")
-            Keymap("n", "[h", function() vim.cmd.Gitsigns("prev_hunk") end, "Prev hunk")
+            vim.keymap.set("n", "]h", function() vim.cmd.Gitsigns("next_hunk") end, { desc = "Next hunk" })
+            vim.keymap.set("n", "[h", function() vim.cmd.Gitsigns("prev_hunk") end, { desc = "Prev hunk" })
         end
     }
 }

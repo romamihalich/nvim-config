@@ -81,38 +81,38 @@ return {
 
         -- keymaps
         local builtin = require('telescope.builtin')
-        Keymap("n", "<leader>ff", builtin.find_files, "Files")
-        Keymap("n", "<leader>аа", builtin.find_files, "Files")
-        Keymap("n", "<leader>fF", function() builtin.find_files({search_file=vim.fn.expand("<cword>")}) end, "Files (Word under cursor)")
-        Keymap("v", "<leader>ff", function()
+        vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
+        vim.keymap.set("n", "<leader>аа", builtin.find_files, { desc = "Files" })
+        vim.keymap.set("n", "<leader>fF", function() builtin.find_files({search_file=vim.fn.expand("<cword>")}) end, { desc = "Files (Word under cursor)" })
+        vim.keymap.set("v", "<leader>ff", function()
             local saved_reg = vim.fn.getreg "v"
             vim.cmd [[noautocmd sil norm "vy]]
             local word = vim.fn.getreg "v"
             vim.fn.setreg("v", saved_reg)
             builtin.find_files({search_file=word})
-        end, "Files")
+        end, { desc = "Files" })
 
-        Keymap("n", "<leader>fg", function() builtin.git_files({show_untracked = true }) end, "Git files")
-        Keymap("n", "<leader>fl", builtin.live_grep, "Live grep")
-        Keymap("n", "<leader>ад", builtin.live_grep, "Live grep")
-        Keymap("n", "<leader>fd", builtin.diagnostics, "Diagnostics")
+        vim.keymap.set("n", "<leader>fg", function() builtin.git_files({show_untracked = true }) end, { desc = "Git files" })
+        vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "Live grep" })
+        vim.keymap.set("n", "<leader>ад", builtin.live_grep, { desc = "Live grep" })
+        vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
         -- keymap("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, "Symbols")
-        Keymap("n", "<leader>fo", function()
+        vim.keymap.set("n", "<leader>fo", function()
             telescope.extensions.file_browser.file_browser({
                 cwd_to_path=true,
                 grouped=true,
             })
-        end, "File browser")
-        Keymap("n", "<leader>fb", builtin.buffers, "Buffers")
-        Keymap("n", "<leader>fr", builtin.resume, "Resume")
-        Keymap("n", "<leader>fs", builtin.grep_string, "Grep string")
-        Keymap("n", "<leader>fS", function() builtin.grep_string({word_match="-w"}) end, "Grep string (Word match)")
-        Keymap("v", "<leader>fs", builtin.grep_string, "Grep string")
-        Keymap("n", "<leader>fq", builtin.quickfix, "Quickfix")
-        Keymap("n", "<leader>fh", builtin.help_tags, "Help")
+        end, { desc = "File browser" })
+        vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
+        vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume" })
+        vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
+        vim.keymap.set("n", "<leader>fS", function() builtin.grep_string({word_match="-w"}) end, { desc = "Grep string (Word match)" })
+        vim.keymap.set("v", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
+        vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix" })
+        vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
 
 
-        Keymap("n", "<leader>gb", function() vim.cmd.Telescope("git_branches") end, "Git branches")
+        vim.keymap.set("n", "<leader>gb", function() vim.cmd.Telescope("git_branches") end, { desc = "Git branches" })
 
         local ok, _ = pcall(telescope.load_extension, 'fzf')
         if not ok then

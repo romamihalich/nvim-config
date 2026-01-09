@@ -14,6 +14,6 @@ return {
             },
         })
 
-        Keymap("n", "<leader>e", vim.cmd.Oil, "Oil")
+        vim.keymap.set("n", "<leader>e", vim.cmd.Oil, { desc = "Oil" })
     end
 }

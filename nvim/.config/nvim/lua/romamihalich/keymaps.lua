@@ -1,5 +1,5 @@
 --Remap space as leader key
-Keymap("", "<Space>", "<Nop>")
+vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -11,28 +11,28 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-Keymap("n", "K", function() vim.lsp.buf.hover({border='rounded'}) end)
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover({border='rounded'}) end)
 
-Keymap("n", "Y", "y$")
-Keymap("n", "<C-h>", "<c-w>h")
-Keymap("n", "<C-l>", "<c-w>l")
-Keymap("n", "<C-j>", "<c-w>j")
-Keymap("n", "<C-k>", "<c-w>k")
-Keymap("v", ">", ">gv")
-Keymap("v", "<", "<gv")
-Keymap("v", "p", "\"_dP")
+vim.keymap.set("n", "Y", "y$")
+vim.keymap.set("n", "<C-h>", "<c-w>h")
+vim.keymap.set("n", "<C-l>", "<c-w>l")
+vim.keymap.set("n", "<C-j>", "<c-w>j")
+vim.keymap.set("n", "<C-k>", "<c-w>k")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", "p", "\"_dP")
 -- keymap("v", "*", 'y/"<CR>')
 
-Keymap("n", "<X1Mouse>", "<C-O>")
-Keymap("n", "<X2Mouse>", "<C-I>")
+vim.keymap.set("n", "<X1Mouse>", "<C-O>")
+vim.keymap.set("n", "<X2Mouse>", "<C-I>")
 
-Keymap("t", "<Esc>", "<C-\\><C-n>")
-Keymap("t", "<C-h>", "<C-\\><C-n><c-w>h")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><c-w>h")
 -- keymap("t", "<C-l>", "<C-\\><C-n><c-w>l")
-Keymap("t", "<C-j>", "<C-\\><C-n><c-w>j")
-Keymap("t", "<C-k>", "<C-\\><C-n><c-w>k")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><c-w>j")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><c-w>k")
 
-Keymap("n", "<leader>r", (function()
+vim.keymap.set("n", "<leader>r", (function()
     local last_command = " "
     return function()
         vim.ui.input({ prompt = "command:", default = last_command }, function(inp)
@@ -42,20 +42,20 @@ Keymap("n", "<leader>r", (function()
             end
         end)
     end
-end)(), "Run a shell command")
+end)(), { desc = "Run a shell command" })
 
-Keymap("n", "<leader>q", "<cmd>bd!<CR>", "Close current buffer")
-Keymap("n", "<leader>H", "<cmd>cd %:p:h | pwd<CR>", "Cd here")
+vim.keymap.set("n", "<leader>q", "<cmd>bd!<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>H", "<cmd>cd %:p:h | pwd<CR>", { desc = "Cd here" })
 
-Keymap("n", "<leader>ot", "<cmd>!$TERMINAL --working-directory \"$PWD\"&<CR><CR>", "Terminal")
-Keymap("n", "<leader>oc", "<cmd>term cht.sh<CR>", "Cheet sheet")
+vim.keymap.set("n", "<leader>ot", "<cmd>!$TERMINAL --working-directory \"$PWD\"&<CR><CR>", { desc = "Terminal" })
+vim.keymap.set("n", "<leader>oc", "<cmd>term cht.sh<CR>", { desc = "Cheet sheet" })
 
-Keymap("n", "<C-n>", vim.cmd.cnext);
-Keymap("n", "<C-p>", vim.cmd.cprev);
+vim.keymap.set("n", "<C-n>", vim.cmd.cnext);
+vim.keymap.set("n", "<C-p>", vim.cmd.cprev);
 
-Keymap("n", "<leader>cl", function()
+vim.keymap.set("n", "<leader>cl", function()
     local filePath = vim.fn.expand("%")
     local lineNbr = vim.fn.line(".")
     local location = filePath .. ":" .. lineNbr
     vim.fn.setreg("+", location)
-end, "Copy location")
+end, { desc = "Copy location" })

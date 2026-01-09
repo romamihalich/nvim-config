@@ -28,11 +28,11 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
         -- keymaps
-        Keymap("n", "<F5>",  dap.continue)
-        Keymap("n", "<F9>",  dap.toggle_breakpoint)
-        Keymap("n", "<F10>", dap.step_over)
-        Keymap("n", "<F11>", dap.step_into)
-        Keymap("n", "<F12>", dap.step_out)
+        vim.keymap.set("n", "<F5>",  dap.continue)
+        vim.keymap.set("n", "<F9>",  dap.toggle_breakpoint)
+        vim.keymap.set("n", "<F10>", dap.step_over)
+        vim.keymap.set("n", "<F11>", dap.step_into)
+        vim.keymap.set("n", "<F12>", dap.step_out)
         -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
         -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 
@@ -41,9 +41,9 @@ return {
             dapui.close()
         end
 
-        Keymap("n", "<leader>dp", dap.pause, "Pause")
-        Keymap("n", "<leader>dq", dap_close, "Close")
-        Keymap("n", "<leader>dh", require'dap.ui.widgets'.hover, "Hover")
-        Keymap("n", "<leader>de", require'dapui'.toggle, "Toggle sidebar")
+        vim.keymap.set("n", "<leader>dp", dap.pause, { desc = "Pause" })
+        vim.keymap.set("n", "<leader>dq", dap_close, { desc = "Close" })
+        vim.keymap.set("n", "<leader>dh", require'dap.ui.widgets'.hover, { desc = "Hover" })
+        vim.keymap.set("n", "<leader>de", require'dapui'.toggle, { desc = "Toggle sidebar" })
     end
 }
