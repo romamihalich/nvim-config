@@ -51,6 +51,11 @@ return {
             },
         }
 
+        local navic = {
+            "navic",
+            color_correction = "dynamic"
+        }
+
         lualine.setup {
             options = {
                 icons_enabled = true,
@@ -64,7 +69,7 @@ return {
                 lualine_b = {'branch'},
                 lualine_c = {
                     pretty_path,
-                    { "navic", color_correction = "static", }
+                    navic,
                 },
                 lualine_x = {
                     {
