@@ -49,6 +49,7 @@ return {
                 Keymap("n",  "<leader>lk",  function() vim.diagnostic.jump({count=-1, float=true}) end,     "Prev diagnostic")
                 Keymap("v",  "<leader>la",  vim.lsp.buf.code_action,                                        "Code actions")
                 Keymap("n",  "gs",          function() vim.lsp.buf.signature_help({border='rounded'}) end,  "Signature help")
+                Keymap("i",  "<C-k>",       function () vim.lsp.buf.signature_help({border='rounded'}) end, "Signature help")
                 Keymap("n",  "gd",          function() require("telescope.builtin").lsp_definitions() end,  "Go to definition")
                 Keymap("n",  "gr",          function() require("telescope.builtin").lsp_references() end,   "Go to references")
             end,
@@ -66,11 +67,8 @@ return {
 
         vim.lsp.enable("lua_ls")
 
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-
         vim.lsp.config("*", {
-            capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
+            capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities()),
         })
     end
 }
