@@ -41,17 +41,17 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('my.lsp', {}),
             callback = function(args)
-                vim.keymap.set("n",  "<leader>la",  vim.lsp.buf.code_action,                                        { desc = "Actions" })
-                vim.keymap.set("n",  "<leader>lf",  vim.lsp.buf.format,                                             { desc = "Formatting" })
-                vim.keymap.set("n",  "<leader>lr",  vim.lsp.buf.rename,                                             { desc = "Rename" })
-                vim.keymap.set("n",  "<leader>ll",  vim.diagnostic.open_float,                                      { desc = "Line diagnostics" })
-                vim.keymap.set("n",  "<leader>lj",  function() vim.diagnostic.jump({count=1, float=true}) end,      { desc = "Next diagnostic" })
-                vim.keymap.set("n",  "<leader>lk",  function() vim.diagnostic.jump({count=-1, float=true}) end,     { desc = "Prev diagnostic" })
-                vim.keymap.set("v",  "<leader>la",  vim.lsp.buf.code_action,                                        { desc = "Code actions" })
-                vim.keymap.set("n",  "gs",          function() vim.lsp.buf.signature_help({border='rounded'}) end,  { desc = "Signature help" })
-                vim.keymap.set("i",  "<C-k>",       function () vim.lsp.buf.signature_help({border='rounded'}) end, { desc = "Signature help" })
-                vim.keymap.set("n",  "gd",          function() require("telescope.builtin").lsp_definitions() end,  { desc = "Go to definition" })
-                vim.keymap.set("n",  "gr",          function() require("telescope.builtin").lsp_references() end,   { desc = "Go to references" })
+                vim.keymap.set("n",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Actions" })
+                vim.keymap.set("n",  "<leader>lf",  vim.lsp.buf.format,                                             { buffer = args.buf, desc = "Formatting" })
+                vim.keymap.set("n",  "<leader>lr",  vim.lsp.buf.rename,                                             { buffer = args.buf, desc = "Rename" })
+                vim.keymap.set("n",  "<leader>ll",  vim.diagnostic.open_float,                                      { buffer = args.buf, desc = "Line diagnostics" })
+                vim.keymap.set("n",  "<leader>lj",  function() vim.diagnostic.jump({count=1, float=true}) end,      { buffer = args.buf, desc = "Next diagnostic" })
+                vim.keymap.set("n",  "<leader>lk",  function() vim.diagnostic.jump({count=-1, float=true}) end,     { buffer = args.buf, desc = "Prev diagnostic" })
+                vim.keymap.set("v",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Code actions" })
+                vim.keymap.set("n",  "gs",          function() vim.lsp.buf.signature_help({border='rounded'}) end,  { buffer = args.buf, desc = "Signature help" })
+                vim.keymap.set("i",  "<C-k>",       function () vim.lsp.buf.signature_help({border='rounded'}) end, { buffer = args.buf, desc = "Signature help" })
+                vim.keymap.set("n",  "gd",          function() require("telescope.builtin").lsp_definitions() end,  { buffer = args.buf, desc = "Go to definition" })
+                vim.keymap.set("n",  "gr",          function() require("telescope.builtin").lsp_references() end,   { buffer = args.buf, desc = "Go to references" })
             end,
         })
 
