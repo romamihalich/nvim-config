@@ -41,6 +41,16 @@ return {
             return enc
         end
 
+        local pretty_path = {
+            "pretty_path",
+            symbols = {
+                modified = "[+]"
+            },
+            highlights = {
+                modified = { bold = true },
+            },
+        }
+
         lualine.setup {
             options = {
                 icons_enabled = true,
@@ -53,7 +63,7 @@ return {
                 lualine_a = {'mode'},
                 lualine_b = {'branch'},
                 lualine_c = {
-                    'pretty_path',
+                    pretty_path,
                     { "navic", color_correction = "static", }
                 },
                 lualine_x = {
@@ -90,7 +100,7 @@ return {
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = {'filename'},
+                lualine_c = {pretty_path},
                 lualine_x = {'location'},
                 lualine_y = {},
                 lualine_z = {}
