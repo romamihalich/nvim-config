@@ -1,6 +1,0 @@
-set incsearch
-set scrolloff 8
-
-map D delete
-
-cmd open &xdg-open $f

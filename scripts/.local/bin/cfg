@@ -1,7 +1,0 @@
-#!/bin/sh
-
-home="/home/romamihalich/.config"
-
-folder=$(ls $home | dmenu -i -p "open config")
-
-[ $folder ] && $EDITOR $home/$folder
