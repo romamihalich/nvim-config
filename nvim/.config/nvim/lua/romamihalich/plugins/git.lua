@@ -10,6 +10,12 @@ return {
         config = function()
             local actions = require("diffview.actions")
             require("diffview").setup({
+                enhanced_diff_hl = true,
+                view = {
+                    default = {
+                        winbar_info = true
+                    },
+                },
                 keymaps = {
                     file_panel = {
                         { "n", "s",             actions.toggle_stage_entry,   { desc = "Stage / unstage the selected entry." } },
@@ -17,7 +23,6 @@ return {
                 },
             })
             vim.keymap.set("n", "<leader>gg", vim.cmd.DiffviewOpen, { desc = "Diffview" })
-            vim.keymap.set("v", "<leader>gh", vim.cmd.DiffviewFileHistory, { desc = "File history" })
         end
     },
     {
@@ -25,6 +30,7 @@ return {
         config = function()
             require('gitsigns').setup({
                 numhl = true,
+                attach_to_untracked = true,
             })
             vim.keymap.set("n", "<leader>gs", function() vim.cmd.Gitsigns("stage_hunk") end, { desc = "Stage hunk" })
             vim.keymap.set("n", "<leader>gl", function() vim.cmd.Gitsigns("blame_line") end, { desc = "Blame line" })

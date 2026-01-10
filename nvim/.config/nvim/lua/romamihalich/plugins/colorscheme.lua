@@ -37,19 +37,6 @@ return {
                 }
             }
             onedark.load()
-
-            -- vim.cmd [[
-            --     hi DiffAdd      gui=none    guifg=NONE          guibg=#bada9f
-            --     hi DiffChange   gui=none    guifg=NONE          guibg=#e5d5ac
-            --     hi DiffDelete   gui=bold    guifg=#ff8080       guibg=#ffb0b0
-            --     hi DiffText     gui=none    guifg=NONE          guibg=#8cbee2
-            -- ]]
-
-            vim.cmd [[
-                hi DiffAdd ctermbg=4 guibg=#1a2e0e
-                hi DiffDelete ctermfg=12 ctermbg=6 guibg=#2e0e10
-                hi DiffChange ctermbg=5 guibg=#06223b
-            ]]
         end
     },
 }
