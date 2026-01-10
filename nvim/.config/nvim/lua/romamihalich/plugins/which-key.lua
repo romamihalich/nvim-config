@@ -32,7 +32,6 @@ return {
         spec = {
             {"<leader>f", group = "find", mode = { "n", "v" } },
             {"<leader>l", group = "LSP", mode = { "n", "v" } },
-            {"<leader>o", group = "open" },
             {"<leader>g", group = "git" },
         }
     }

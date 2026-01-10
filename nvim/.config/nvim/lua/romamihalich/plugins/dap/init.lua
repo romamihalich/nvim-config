@@ -33,8 +33,6 @@ return {
         vim.keymap.set("n", "<F10>", dap.step_over)
         vim.keymap.set("n", "<F11>", dap.step_into)
         vim.keymap.set("n", "<F12>", dap.step_out)
-        -- nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-        -- nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 
         local dap_close = function()
             dap.close()

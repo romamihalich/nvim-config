@@ -14,6 +14,15 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>e", vim.cmd.Oil, { desc = "Oil" })
+        local smart_keymap = function()
+            if vim.bo.filetype == "NvimTree" then
+                vim.cmd.NvimTreeClose()
+            else
+                vim.cmd.Oil()
+            end
+
+        end
+
+        vim.keymap.set("n", "<leader>e", smart_keymap, { desc = "Oil" })
     end
 }

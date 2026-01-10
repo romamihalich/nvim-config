@@ -96,7 +96,6 @@ return {
         vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "Live grep" })
         vim.keymap.set("n", "<leader>ад", builtin.live_grep, { desc = "Live grep" })
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
-        -- keymap("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, "Symbols")
         vim.keymap.set("n", "<leader>fo", function()
             telescope.extensions.file_browser.file_browser({
                 cwd_to_path=true,
@@ -110,7 +109,6 @@ return {
         vim.keymap.set("v", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
         vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
-
 
         vim.keymap.set("n", "<leader>gb", function() vim.cmd.Telescope("git_branches") end, { desc = "Git branches" })
 

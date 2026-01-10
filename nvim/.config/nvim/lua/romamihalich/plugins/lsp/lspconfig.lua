@@ -41,6 +41,7 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('my.lsp', {}),
             callback = function(args)
+                vim.keymap.set("n",  "K",           function() vim.lsp.buf.hover({border='rounded'}) end,           { buffer = args.buf, desc = "Hover" })
                 vim.keymap.set("n",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Actions" })
                 vim.keymap.set("n",  "<leader>lf",  vim.lsp.buf.format,                                             { buffer = args.buf, desc = "Formatting" })
                 vim.keymap.set("n",  "<leader>lr",  vim.lsp.buf.rename,                                             { buffer = args.buf, desc = "Rename" })
