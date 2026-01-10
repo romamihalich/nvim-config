@@ -6,6 +6,9 @@ return {
         vim.keymap.set("n", "<leader>hh", "<cmd> lua require'harpoon.ui'.nav_file(1)<CR>", { desc = "Nav file 1" })
         vim.keymap.set("n", "<leader>hj", "<cmd> lua require'harpoon.ui'.nav_file(2)<CR>", { desc = "Nav file 2" })
         vim.keymap.set("n", "<leader>hk", "<cmd> lua require'harpoon.ui'.nav_file(3)<CR>", { desc = "Nav file 3" })
+
+        require("which-key").add(
+            {"<leader>h", group = "harpoon" }
+        )
     end
 }
-

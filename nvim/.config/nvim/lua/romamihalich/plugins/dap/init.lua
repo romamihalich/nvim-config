@@ -45,5 +45,9 @@ return {
         vim.keymap.set("n", "<leader>dq", dap_close, { desc = "Close" })
         vim.keymap.set("n", "<leader>dh", require'dap.ui.widgets'.hover, { desc = "Hover" })
         vim.keymap.set("n", "<leader>de", require'dapui'.toggle, { desc = "Toggle sidebar" })
+
+        require("which-key").add(
+            {"<leader>d", group = "debug" }
+        )
     end
 }
