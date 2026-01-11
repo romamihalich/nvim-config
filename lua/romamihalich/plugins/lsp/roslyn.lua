@@ -1,9 +1,8 @@
 return {
     "seblyng/roslyn.nvim",
     ft = "cs",
-    ---@module 'roslyn.config'
-    ---@type RoslynNvimConfig
-    opts = {
-        -- your configuration comes here; leave empty for default settings
-    },
+    config = function()
+        require("roslyn").setup()
+        disable_lsp_for_git_directory("roslyn")
+    end
 }

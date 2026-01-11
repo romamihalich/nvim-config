@@ -67,6 +67,7 @@ return {
         })
 
         vim.lsp.enable("lua_ls")
+        disable_lsp_for_git_directory("lua_ls")
 
         vim.lsp.config("*", {
             capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities()),
