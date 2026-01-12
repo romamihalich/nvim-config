@@ -1,31 +1,36 @@
-local group = vim.api.nvim_create_augroup("kek", { clear = true })
-vim.api.nvim_clear_autocmds({ group = group })
-local autocmd = function(event, opts)
-    opts.group = group
-    vim.api.nvim_create_autocmd(event, opts)
-end
+local group = vim.api.nvim_create_augroup("romamihalich.autocmds", {})
 
-autocmd("TermOpen", { command = "startinsert" })
+vim.api.nvim_create_autocmd("TermOpen", {
+    group = group,
+    command = "startinsert",
+})
 
-autocmd("VimEnter", { command = ':silent exec "!kill -s SIGWINCH $PPID"'})
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = group,
+    command = ':silent exec "!kill -s SIGWINCH $PPID"',
+})
 
-autocmd("BufWritePost", {
+vim.api.nvim_create_autocmd("BufWritePost", {
+    group = group,
     pattern = { "*Xresources", "*Xdefaults" },
     command = "!xrdb %"
 })
 
-autocmd("BufWritePost", {
+vim.api.nvim_create_autocmd("BufWritePost", {
+    group = group,
     pattern = "*sxhkdrc",
     command = "!pkill -USR1 -x sxhkd"
 })
 
-autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = group,
     callback = function()
         vim.hl.on_yank()
     end
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
+    group = group,
     pattern = "*",
     command = "set formatoptions-=o",
 })

@@ -39,7 +39,7 @@ return {
         vim.diagnostic.config(config)
 
         vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('my.lsp', {}),
+            group = vim.api.nvim_create_augroup('romamihalich.lsp', {}),
             callback = function(args)
                 vim.keymap.set("n",  "K",           function() vim.lsp.buf.hover({border='rounded'}) end,           { buffer = args.buf, desc = "Hover" })
                 vim.keymap.set("n",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Actions" })
