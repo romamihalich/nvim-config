@@ -4,10 +4,6 @@ return {
         require("romamihalich.plugins.dap.dap-ui"),
     },
     config = function()
-        if vim.loop.os_uname().sysname ~= "Linux" then
-            return
-        end
-
         local dap = require("dap")
 
         local debuggers_path = vim.fn.stdpath("data") .. "/mason/bin/"

@@ -36,3 +36,16 @@ vim.keymap.set("n", "<leader>cl", function()
     local location = filePath .. ":" .. lineNbr
     vim.fn.setreg("+", location)
 end, { desc = "Copy location" })
+
+local term_buf = -1
+vim.keymap.set("n", "<leader>tt", function()
+    if term_buf == -1 or vim.fn.bufexists(term_buf) == 0 then
+        vim.cmd.term()
+        term_buf = vim.api.nvim_get_current_buf()
+    elseif vim.api.nvim_get_current_buf() == term_buf then
+        vim.cmd.bprev()
+    else
+        vim.cmd.buffer(term_buf)
+    end
+end)
+

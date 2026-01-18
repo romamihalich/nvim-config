@@ -6,6 +6,10 @@ Signs = {
     info = "",
 }
 
+function IsWindows()
+    return vim.uv.os_uname().sysname ~= "Linux"
+end
+
 local patched_servers = {}
 
 function disable_lsp_for_git_directory(server_name)

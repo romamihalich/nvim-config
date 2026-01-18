@@ -30,11 +30,14 @@ vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m,%f"
 vim.opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 vim.opt.listchars="tab:>·,trail:·,space:·,lead:·"
 vim.opt.list = true
+vim.opt.laststatus = 3
+vim.opt.showmode = false
 
 vim.opt.iskeyword:append('-')
 vim.opt.diffopt:append('iwhite')
 vim.opt.fillchars:append('diff: ')
 
-if vim.loop.os_uname().sysname ~= "Linux" then
+if IsWindows() then
     vim.cmd.language("en_GB")
+    vim.opt.shell = "pwsh.exe"
 end

@@ -38,13 +38,24 @@ return {
         })
     end,
     init = function()
-        if vim.loop.os_uname().sysname ~= "Linux" then
+        if IsWindows() then
             vim.lsp.config("roslyn", {
                 settings = {
                     ["csharp|background_analysis"] = {
                         dotnet_analyzer_diagnostics_scope = "none",
                     },
                 }
+            })
+
+            -- HACK: for some reason on windows not recognizing newly created files without this
+            vim.lsp.config("roslyn", {
+                capabilities = {
+                    workspace = {
+                        didChangeWatchedFiles = {
+                            dynamicRegistration = false,
+                        },
+                    },
+                },
             })
         end
     end

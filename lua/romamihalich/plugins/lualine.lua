@@ -25,6 +25,9 @@ return {
             highlights = {
                 modified = { bold = true },
             },
+            directories = {
+                shorten = false
+            }
         }
 
         local navic = {
@@ -89,8 +92,8 @@ return {
                 lualine_a = {'mode'},
                 lualine_b = {'branch'},
                 lualine_c = {
-                    pretty_path,
-                    navic,
+                    -- pretty_path,
+                    -- navic,
                 },
                 lualine_x = {
                     diagnostics,
@@ -112,6 +115,15 @@ return {
                 lualine_z = {}
             },
             tabline = {},
+            winbar = {
+                lualine_c = {
+                    pretty_path,
+                    -- navic
+                }
+            },
+            inactive_winbar = {
+                lualine_c = { pretty_path }
+            },
             extensions = {}
         }
     end
