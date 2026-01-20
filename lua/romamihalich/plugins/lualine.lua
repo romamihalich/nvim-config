@@ -1,18 +1,18 @@
 return {
-    'hoob3rt/lualine.nvim',
+    "hoob3rt/lualine.nvim",
     dependencies = {
         {
-            'SmiteshP/nvim-navic',
+            "SmiteshP/nvim-navic",
             dependencies = { "neovim/nvim-lspconfig" },
             config = function()
-                require "nvim-navic".setup {
+                require("nvim-navic").setup({
                     lsp = {
                         auto_attach = true,
                     },
                     highlight = true,
                     click = true,
-                }
-            end
+                })
+            end,
         },
         "bwpge/lualine-pretty-path",
     },
@@ -26,18 +26,18 @@ return {
             --     modified = { bold = true },
             -- },
             directories = {
-                shorten = false
-            }
+                shorten = false,
+            },
         }
 
         local navic = {
             "navic",
-            color_correction = "dynamic"
+            color_correction = "dynamic",
         }
 
         local diagnostics = {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
             sections = { "error", "warn", "hint" },
             symbols = {
                 error = Signs.error .. " ",
@@ -50,49 +50,49 @@ return {
         }
 
         local client_name = {
-            icon = ' LSP:',
+            icon = " LSP:",
             function()
                 local clients = vim.lsp.get_clients({ bufnr = 0 })
                 if #clients < 1 then
-                    return 'No Active Lsp'
+                    return "No Active Lsp"
                 end
                 return clients[1].name
-            end
+            end,
         }
 
         local encoding = {
-            function ()
+            function()
                 local enc = vim.opt.fileencoding:get()
                 if enc == "utf-8" then
                     return ""
                 end
                 return enc
-            end
+            end,
         }
 
         local fileformat = {
-            'fileformat',
+            "fileformat",
             symbols = {
                 -- unix = '', -- e712
-                unix = '',
-                dos = '',  -- e70f
-                mac = '',  -- e711
-            }
+                unix = "",
+                dos = "", -- e70f
+                mac = "", -- e711
+            },
         }
 
-        require("lualine").setup {
+        require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = 'auto',
-                component_separators = {'', ''},
-                section_separators = {'', ''},
-                disabled_filetypes = {'NvimTree'}
+                theme = "auto",
+                component_separators = { "", "" },
+                section_separators = { "", "" },
+                disabled_filetypes = { "NvimTree" },
             },
             sections = {
-                lualine_a = {'mode'},
-                lualine_b = {'branch'},
+                lualine_a = { "mode" },
+                lualine_b = { "branch" },
                 lualine_c = {
-                    'filename',
+                    "filename",
                     navic,
                 },
                 lualine_x = {
@@ -100,28 +100,28 @@ return {
                     client_name,
                     encoding,
                     fileformat,
-                    'filetype',
-                    'location',
+                    "filetype",
+                    "location",
                 },
-                lualine_y = {'progress'},
-                lualine_z = {}
+                lualine_y = { "progress" },
+                lualine_z = {},
             },
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = {pretty_path},
-                lualine_x = {'location'},
+                lualine_c = { pretty_path },
+                lualine_x = { "location" },
                 lualine_y = {},
-                lualine_z = {}
+                lualine_z = {},
             },
             tabline = {},
             winbar = {
-                lualine_c = { pretty_path }
+                lualine_c = { pretty_path },
             },
             inactive_winbar = {
-                lualine_c = { pretty_path }
+                lualine_c = { pretty_path },
             },
-            extensions = {}
-        }
-    end
+            extensions = {},
+        })
+    end,
 }
