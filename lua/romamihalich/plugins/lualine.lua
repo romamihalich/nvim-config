@@ -19,12 +19,12 @@ return {
     config = function()
         local pretty_path = {
             "pretty_path",
-            symbols = {
-                modified = "[+]"
-            },
-            highlights = {
-                modified = { bold = true },
-            },
+            -- symbols = {
+            --     modified = "[+]"
+            -- },
+            -- highlights = {
+            --     modified = { bold = true },
+            -- },
             directories = {
                 shorten = false
             }
@@ -92,8 +92,8 @@ return {
                 lualine_a = {'mode'},
                 lualine_b = {'branch'},
                 lualine_c = {
-                    -- pretty_path,
-                    -- navic,
+                    'filename',
+                    navic,
                 },
                 lualine_x = {
                     diagnostics,
@@ -116,10 +116,7 @@ return {
             },
             tabline = {},
             winbar = {
-                lualine_c = {
-                    pretty_path,
-                    -- navic
-                }
+                lualine_c = { pretty_path }
             },
             inactive_winbar = {
                 lualine_c = { pretty_path }
