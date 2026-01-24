@@ -1,11 +1,14 @@
 local M = {}
 
 M.setup = function(dap, debuggers_path)
-    dap.adapters["coreclr"] = {
+    local adapter = {
         type = "executable",
         command = debuggers_path .. "netcoredbg",
         args = { "--interpreter=vscode" },
     }
+
+    dap.adapters["netcoredbg"] = adapter
+    dap.adapters["coreclr"] = adapter
     dap.configurations["cs"] = {
         {
             type = "coreclr",
