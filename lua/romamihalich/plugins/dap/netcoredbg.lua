@@ -15,8 +15,8 @@ M.setup = function(dap, debuggers_path)
             name = "launch - netcoredbg",
             request = "launch",
             program = function()
-                return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
-            end,
+                return require("dap.utils").pick_file({ filter = ".*%.dll", executables = false })
+            end
         },
         {
             -- If you get an "Operation not permitted" error using this, try disabling YAMA:
