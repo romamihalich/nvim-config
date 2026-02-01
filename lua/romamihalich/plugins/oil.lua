@@ -11,6 +11,9 @@ return {
             view_options = {
                 -- Show files and directories that start with "."
                 show_hidden = true,
+                is_always_hidden = function(name, bufnr)
+                    return name == "." or name == ".."
+                end,
             },
         })
 
