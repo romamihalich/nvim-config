@@ -25,9 +25,6 @@ return {
         { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put before and indent left" },
         { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter" },
         { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
-
-        { "p", "\"_d<Plug>(YankyPutBefore)", mode = { "x" }, desc = "Put yanked text after cursor" },
-        { "P", "\"_d<Plug>(YankyPutBefore)", mode = { "x" }, desc = "Put yanked text before cursor" },
     },
     init = function()
         require("which-key").add(
