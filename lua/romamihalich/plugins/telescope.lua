@@ -52,7 +52,7 @@ return {
         end, { desc = "Files" })
 
         vim.keymap.set("n", "<leader>fg", function() builtin.git_files({ show_untracked = true }) end, { desc = "Git files" })
-        vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "Live grep" })
+        vim.keymap.set("n", "<leader>fl", require("romamihalich.multi-ripgrep"), { desc = "Live grep" })
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
         vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
         vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "Resume" })
