@@ -18,10 +18,14 @@ return {
     },
     config = function()
         -- modify oil provider
+        local path_sep = package.config:sub(1, 1)
         require("lualine-pretty-path.providers.oil").format_path = function()
             local oil_path = require("oil").get_current_dir() .. "dummy_value"
-            local cwd = vim.uv.cwd()
-            return vim.fs.relpath(cwd, oil_path) or oil_path
+            local cwd = vim.uv.cwd() .. path_sep
+            if vim.startswith(oil_path, cwd) then
+                oil_path = oil_path:sub(#cwd + 1)
+            end
+            return oil_path
         end
 
         local pretty_path = {
