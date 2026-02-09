@@ -32,6 +32,7 @@ vim.opt.listchars="tab:>·,trail:·,space:·,lead:·"
 vim.opt.list = true
 vim.opt.laststatus = 3
 vim.opt.showmode = false
+vim.opt.exrc = true
 
 vim.opt.iskeyword:append('-')
 vim.opt.diffopt:append('iwhite')

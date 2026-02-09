@@ -1,15 +1,6 @@
---Remap space as leader key
 vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "<C-h>", "<c-w>h")
