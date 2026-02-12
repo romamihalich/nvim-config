@@ -61,6 +61,7 @@ return {
         vim.keymap.set("v", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
         vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
+        vim.keymap.set("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace symbols" })
 
         vim.keymap.set("n", "<leader>gb", function() vim.cmd.Telescope("git_branches") end, { desc = "Git branches" })
 
