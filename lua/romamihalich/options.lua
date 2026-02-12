@@ -40,5 +40,7 @@ vim.opt.fillchars:append('diff: ')
 
 if IsWindows() then
     vim.cmd.language("en_GB")
-    vim.opt.shell = "pwsh.exe"
+    vim.opt.shell = "pwsh"
+    vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+    vim.opt.shellxquote = ""
 end
