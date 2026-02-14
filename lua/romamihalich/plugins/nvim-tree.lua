@@ -5,6 +5,14 @@ return {
             update_focused_file = {
                 enable = true,
             },
+            git = {
+                timeout = 1000,
+            },
+            actions = {
+                open_file = {
+                    resize_window = false,
+                }
+            },
         })
 
         vim.keymap.set("n", "<leader>E", vim.cmd.NvimTreeToggle, { desc = "Explorer toggle" })
