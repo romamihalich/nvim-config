@@ -62,7 +62,7 @@ return {
                 vim.keymap.set("n",  "grt",         function() require("telescope.builtin").lsp_type_definitions() end, { buffer = args.buf, desc = "Go to type definitions" })
 
                 vim.keymap.set("n",  "gs",          function() vim.lsp.buf.signature_help({border='rounded', wrap = true, height = 3}) end,  { buffer = args.buf, desc = "Signature help" })
-                vim.keymap.set("i",  "<C-k>",       function () vim.lsp.buf.signature_help({border='rounded', wrap = true, height = 3}) end, { buffer = args.buf, desc = "Signature help" })
+                vim.keymap.set("i",  "<C-s>",       function () vim.lsp.buf.signature_help({border='rounded', wrap = true, height = 3}) end, { buffer = args.buf, desc = "Signature help" })
 
                 vim.api.nvim_create_autocmd("CursorMoved", {
                     buffer = args.buf,

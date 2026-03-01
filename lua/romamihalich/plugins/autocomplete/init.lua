@@ -16,7 +16,11 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        -- keymap = { preset = 'super-tab' },
+        keymap = {
+            preset = 'default',
+
+            ['<C-k>'] = { 'show' }
+        },
 
         completion = {
             documentation = { auto_show = true },
