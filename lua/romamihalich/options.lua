@@ -35,7 +35,7 @@ vim.opt.showmode = false
 vim.opt.exrc = true
 
 vim.opt.iskeyword:append('-')
-vim.opt.diffopt:append('iwhite')
+-- vim.opt.diffopt:append('iwhite')
 vim.opt.fillchars:append('diff: ')
 
 if IsWindows() then
