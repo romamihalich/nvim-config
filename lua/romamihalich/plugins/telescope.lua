@@ -59,7 +59,13 @@ return {
         vim.keymap.set("n", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
         vim.keymap.set("n", "<leader>fS", function() builtin.grep_string({ word_match = "-w" }) end, { desc = "Grep string (Word match)" })
         vim.keymap.set("v", "<leader>fs", builtin.grep_string, { desc = "Grep string" })
-        vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "Quickfix" })
+
+        require("which-key").add(
+            {"<leader>fq", group = "Quickfix", mode = { "n", "v" } }
+        )
+        vim.keymap.set("n", "<leader>fqq", builtin.quickfix, { desc = "Quickfix" })
+        vim.keymap.set("n", "<leader>fqh", builtin.quickfixhistory, { desc = "Quickfix history" })
+
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
         vim.keymap.set("n", "<leader>fw", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace symbols" })
 
