@@ -16,6 +16,10 @@ return {
                     return name == "." or name == ".."
                 end,
             },
+            keymaps = {
+                ["<C-h>"] = false,
+                ["<C-l>"] = false,
+            },
         })
 
         local smart_keymap = function()
