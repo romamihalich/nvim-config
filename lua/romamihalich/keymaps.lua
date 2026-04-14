@@ -21,6 +21,9 @@ vim.keymap.set("n", "<leader>H", "<cmd>cd %:p:h | pwd<CR>", { desc = "Cd here" }
 vim.keymap.set("n", "<C-n>", vim.cmd.cnext);
 vim.keymap.set("n", "<C-p>", vim.cmd.cprev);
 
+vim.keymap.set("n", "n", "nzz");
+vim.keymap.set("n", "N", "Nzz");
+
 vim.keymap.set("n", "<leader>cl", function()
     local filePath = vim.fn.expand("%")
     local lineNbr = vim.fn.line(".")
