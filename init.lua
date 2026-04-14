@@ -1,4 +1,6 @@
 vim.loader.enable()
+require('vim._core.ui2').enable()
+
 require "romamihalich.globals"
 require "romamihalich.options"
 require "romamihalich.keymaps"
