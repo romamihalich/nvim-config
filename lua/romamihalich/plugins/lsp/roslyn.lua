@@ -39,13 +39,13 @@ return {
     end,
     init = function()
         if IsWindows() then
-            vim.lsp.config("roslyn", {
-                settings = {
-                    ["csharp|background_analysis"] = {
-                        -- dotnet_analyzer_diagnostics_scope = "none",
-                    },
-                }
-            })
+            -- vim.lsp.config("roslyn", {
+            --     settings = {
+            --         ["csharp|background_analysis"] = {
+            --             dotnet_analyzer_diagnostics_scope = "none",
+            --         },
+            --     }
+            -- })
 
             -- HACK: for some reason on windows not recognizing newly created files without this
             vim.lsp.config("roslyn", {

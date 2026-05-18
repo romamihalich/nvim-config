@@ -44,6 +44,11 @@ return {
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('romamihalich.lsp', {}),
             callback = function(args)
+                local function toggle_codelens()
+                    vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+                end
+
+
                 vim.keymap.set("n",  "K",           function() vim.lsp.buf.hover({border='rounded'}) end,           { buffer = args.buf, desc = "Hover" })
 
                 vim.keymap.set("n",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Actions" })
@@ -54,7 +59,7 @@ return {
                 vim.keymap.set("n",  "<leader>lk",  function() vim.diagnostic.jump({count=-1, float=true}) end,     { buffer = args.buf, desc = "Prev diagnostic" })
                 vim.keymap.set("v",  "<leader>la",  vim.lsp.buf.code_action,                                        { buffer = args.buf, desc = "Code actions" })
                 vim.keymap.set("n",  "<leader>lh",  vim.lsp.buf.document_highlight,                                 { buffer = args.buf, desc = "Highlight" })
-                vim.keymap.set("n",  "<leader>lc",  vim.lsp.codelens.refresh,                                       { buffer = args.buf, desc = "Code lens" })
+                vim.keymap.set("n",  "<leader>lc",  toggle_codelens,                                                { buffer = args.buf, desc = "Toggle code lens" })
 
                 vim.keymap.set("n",  "gd",          function() require("telescope.builtin").lsp_definitions() end,      { buffer = args.buf, desc = "Go to definition" })
                 vim.keymap.set("n",  "grr",         function() require("telescope.builtin").lsp_references() end,       { buffer = args.buf, desc = "Go to references" })

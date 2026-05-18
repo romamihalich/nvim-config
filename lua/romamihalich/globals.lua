@@ -23,7 +23,7 @@ function disable_lsp_for_git_directory(server_name)
     vim.lsp.config(server_config.name, {
         root_dir = function(bufnr, on_dir)
             local bufname = vim.fn.bufname(bufnr)
-            if bufname:find(".git/") then
+            if bufname:find(".git/") or bufname:find("fugitive:") then
                 return
             end
 
