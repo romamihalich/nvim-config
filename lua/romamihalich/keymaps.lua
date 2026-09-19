@@ -30,3 +30,7 @@ vim.keymap.set("n", "<leader>cl", function()
     local location = filePath .. ":" .. lineNbr
     vim.fn.setreg("+", location)
 end, { desc = "Copy location" })
+
+-- for herdr
+vim.keymap.set("n", "<C-BS>", "<C-w>h")
+vim.keymap.set("n", "<C-CR>", "<C-w>j")
